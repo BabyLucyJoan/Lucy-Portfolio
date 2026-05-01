@@ -15,7 +15,7 @@ export const AUTHOR = {
   bio:        "A Fullstack Web developer with a passion for creating dynamic, user-friendly, and visually appealing web applications. I specialise in building responsive interfaces with React, ensuring seamless performance across all devices.",
   email:      'nwokoyelucy@gmail.com',
   phone:      '+234-706-756-1427',
-  avatar:     '/avatar.jpg',
+  avatar:     '/profile-pic.jpeg',
   socials: {
     github:    'https://github.com/BabyLucyJoan',
     linkedin:  'https://linkedin.com/in/nwokoye-lucy-5b924128b',
@@ -50,7 +50,7 @@ export const CAT_COLORS = {
 export const EDUCATION = [
   {
     year:        2024,
-    degree:      "Bachelor's Degree",
+    degree:      "Bachelor of Science",
     field:       'Geography and Environmental Management',
     institution: 'University of Port Harcourt',
     url:         'https://www.uniport.edu.ng',
