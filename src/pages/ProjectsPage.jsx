@@ -63,7 +63,7 @@ export default function ProjectsPage() {
         <p className="eyebrow">WHAT I'VE BUILT</p>
         <h2 className="section-title">My <em>Projects</em></h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(280px,1fr))', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1.25rem' }}>
           {PROJECTS.map((p, i) => (
             <ProjectCard key={p.title} project={p} idx={i} />
           ))}

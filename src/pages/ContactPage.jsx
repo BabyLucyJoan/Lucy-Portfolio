@@ -84,7 +84,7 @@ export default function ContactPage() {
             <p style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1rem, 3vw, 1.2rem)', marginBottom: '1.5rem' }}>
               Send a <em style={{ color: 'var(--acc)' }}>Message</em>
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>
               {[['name','Name','Your name'],['email','Email','your@email.com']].map(([n,l,ph]) => (
                 <div key={n}>
                   <label style={{ fontSize: '0.68rem', color: 'var(--text-3)', fontFamily: 'var(--mono)', display: 'block', marginBottom: '0.4rem' }}>{l.toUpperCase()}</label>

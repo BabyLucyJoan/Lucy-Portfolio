@@ -51,7 +51,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="code-block">
+          <div className="code-block" style={{ overflow: 'hidden' }}>
             <div className="code-header">
               <div className="dot" style={{ background: '#E87EC9' }} />
               <div className="dot" style={{ background: 'var(--acc)' }} />
@@ -62,7 +62,7 @@ export default function AboutPage() {
   <span class="key">name</span>:      <span class="str">"Lucy Nwokoye"</span>,
   <span class="key">role</span>:      <span class="str">"Fullstack Web Developer"</span>,
   <span class="key">stack</span>:     [<span class="str">"React"</span>, <span class="str">"TypeScript"</span>, <span class="str">"JavaScript"</span>, <span class="str">"Node.js"</span>, <span class="str">"MongoDB"</span>],
-  <span class="key">work</span>:      [<span class="str">"Xynder"</span>,  <span class="str">"Suncgrass"</span>],
+  <span class="key">work</span>:      [<span class="str">"Xynder"</span>,  <span class="str">"SyncGrass"</span>],
   <span class="key">community</span>: <span class="str">"Tech And Teach (1k+ members)"</span>,
   <span class="key">hobbies</span>:  [<span class="str">"sewing"</span>, <span class="str">"fashion"</span>, <span class="str">"content creation"</span>],
   <span class="key">status</span>:   <span class="str">"available"</span>, <span class="cm">// open to opportunities</span>

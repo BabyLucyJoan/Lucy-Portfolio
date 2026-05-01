@@ -9,6 +9,7 @@ import SkillsPage     from './pages/SkillsPage';
 import EducationPage  from './pages/EducationPage';
 import ExperiencePage from './pages/ExperiencePage';
 import ProjectsPage   from './pages/ProjectsPage';
+import DesignsPage    from './pages/DesignsPage';
 import ContactPage    from './pages/ContactPage';
 
 function Portfolio() {
@@ -33,6 +34,7 @@ function Portfolio() {
         <EducationPage />
         <ExperiencePage />
         <ProjectsPage />
+        <DesignsPage />
         <ContactPage />
       </main>
       <Footer />

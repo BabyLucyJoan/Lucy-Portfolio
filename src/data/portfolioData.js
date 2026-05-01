@@ -5,6 +5,7 @@ export const NAV = [
   { id: 'education',  icon: '◎', label: 'Education'  },
   { id: 'experience', icon: '▣', label: 'Experience' },
   { id: 'projects',   icon: '▦', label: 'Projects'   },
+  { id: 'designs',    icon: '🎨', label: 'Designs'   },
   { id: 'contact',    icon: '✉', label: 'Contact'    },
 ];
 
@@ -39,13 +40,21 @@ export const SKILLS = [
   { name: 'Postman',           pct: 75, cat: 'tooling'  },
   { name: 'Vercel Deployments',pct: 80, cat: 'tooling'  },
   { name: 'Axios / REST APIs', pct: 78, cat: 'tooling'  },
+  { name: 'Canva',             pct: 90, cat: 'design'   },
+  { name: 'UI/UX Design',      pct: 78, cat: 'design'   },
+  { name: 'Brand Graphics',    pct: 82, cat: 'design'   },
+  { name: 'Social Media Design',pct: 88, cat: 'design'  },
 ];
 
 export const CAT_COLORS = {
   frontend: 'var(--acc)',
   backend:  'var(--acc3)',
   tooling:  'var(--acc2)',
+  design:   '#a78bfa',
 };
+
+// Convenience — all filter categories that actually exist in SKILLS data
+export const SKILL_CATS = ['all', 'frontend', 'backend', 'tooling', 'design'];
 
 export const EDUCATION = [
   {
@@ -157,5 +166,50 @@ export const PROJECTS = [
     bgColor: 'linear-gradient(135deg,#0a2e1a,#0a1a2e)',
     icon:    '🌿',
     accent:  'var(--acc2)',
+  },
+];
+
+export const DESIGNS = [
+  {
+    title:    'Tech & Teach Community Banner',
+    category: 'Social Media',
+    desc:     'Community banner and promotional graphics for the Tech And Teach Telegram group.',
+    color:    'linear-gradient(135deg, #1a0a2e, #0a1a3e)',
+    icon:     '🌍',
+  },
+  {
+    title:    'NJL Splendour Brand Identity',
+    category: 'Branding',
+    desc:     'Logo, colour palette, and visual identity assets for the NJL Splendour fashion brand.',
+    color:    'linear-gradient(135deg, #2e0a1a, #1a0a2e)',
+    icon:     '✨',
+  },
+  {
+    title:    'Event Flyers & Posters',
+    category: 'Print Design',
+    desc:     'Promotional flyers and digital posters designed for tech meetups and community events.',
+    color:    'linear-gradient(135deg, #0a2e1a, #0a1a2e)',
+    icon:     '🎨',
+  },
+  {
+    title:    'Social Media Templates',
+    category: 'Social Media',
+    desc:     'Reusable Instagram and Twitter post templates for personal and community branding.',
+    color:    'linear-gradient(135deg, #0a1a2e, #1a2e0a)',
+    icon:     '📱',
+  },
+  {
+    title:    'Presentation Decks',
+    category: 'Presentations',
+    desc:     'Clean, professional slide decks created for tech talks, pitches, and community sessions.',
+    color:    'linear-gradient(135deg, #2e1a0a, #0a1a2e)',
+    icon:     '📊',
+  },
+  {
+    title:    'Portfolio Graphics',
+    category: 'Branding',
+    desc:     'Personal brand graphics, banners, and visual assets for online portfolio presence.',
+    color:    'linear-gradient(135deg, #1a0a2e, #2e0a2e)',
+    icon:     '🖼',
   },
 ];

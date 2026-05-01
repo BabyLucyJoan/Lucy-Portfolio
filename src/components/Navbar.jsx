@@ -36,8 +36,8 @@ export default function Navbar({ active }) {
         >
           <img
             src="/logo.jpeg"
-            alt="Logo"
-            style={{ height: 34, width: 'auto', objectFit: 'contain' }}
+            alt="NJL Splendour Logo"
+            className="nav-logo"
             onError={e => {
               e.currentTarget.style.display = 'none';
               e.currentTarget.nextSibling.style.display = 'flex';
@@ -45,7 +45,7 @@ export default function Navbar({ active }) {
           />
           <span style={{
             display: 'none', alignItems: 'center', justifyContent: 'center',
-            height: 34, paddingInline: '0.75rem', borderRadius: 8,
+            height: 36, paddingInline: '0.75rem', borderRadius: 8,
             border: '1.5px dashed var(--border-hi)',
             fontFamily: 'var(--mono)', fontSize: '0.72rem',
             color: 'var(--text-3)', letterSpacing: '0.1em', whiteSpace: 'nowrap',
@@ -55,7 +55,7 @@ export default function Navbar({ active }) {
         </button>
 
         {/* Right side */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.15rem', minWidth: 0 }}>
 
           {/* Desktop: pill text buttons */}
           {NAV.map(n => (
@@ -101,6 +101,22 @@ export default function Navbar({ active }) {
       </nav>
 
       <style>{`
+        /* Logo */
+        .nav-logo {
+          height: 42px;
+          width: auto;
+          object-fit: contain;
+          border-radius: 4px;
+          /* Dark mode: screen blend strips black bg, keeps white art */
+          mix-blend-mode: screen;
+          filter: brightness(1.15) contrast(1.05);
+        }
+        /* Light mode: logo has black bg + white art — invert makes it black art on white */
+        [data-theme="light"] .nav-logo {
+          mix-blend-mode: multiply;
+          filter: brightness(0) contrast(1);
+        }
+
         .nav-pill {
           display: none;
           align-items: center;
@@ -131,14 +147,15 @@ export default function Navbar({ active }) {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 30px; height: 30px;
+          width: 26px; height: 26px;
           border-radius: 50%;
           background: transparent;
           border: 1px solid transparent;
           color: var(--text-3);
-          font-size: 0.85rem;
+          font-size: 0.75rem;
           cursor: pointer;
           transition: all 0.2s;
+          flex-shrink: 0;
         }
         .nav-icon-btn[data-active="true"] {
           background: var(--glow1);
