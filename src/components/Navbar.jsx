@@ -35,7 +35,7 @@ export default function Navbar({ active }) {
           title="Home"
         >
           <img
-            src="/logo.png"
+            src="/logo.jpeg"
             alt="Logo"
             style={{ height: 34, width: 'auto', objectFit: 'contain' }}
             onError={e => {
