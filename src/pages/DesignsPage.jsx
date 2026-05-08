@@ -19,23 +19,64 @@ function DesignCard({ item, idx }) {
       }}
     >
       <div style={{
-        height: 140, background: item.color,
+        height: 180, background: item.color,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         position: 'relative', overflow: 'hidden',
       }}>
-        <span style={{ fontSize: '3.5rem', opacity: 0.5 }}>{item.icon}</span>
+        {/* Real image if available */}
+        {item.image ? (
+          <img
+            src={item.image}
+            alt={item.title}
+            style={{
+              width: '100%', height: '100%',
+              objectFit: 'cover', objectPosition: 'center',
+              display: 'block',
+              transition: 'transform 0.4s ease',
+            }}
+            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
+            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+            onError={e => {
+              // Fallback to icon if image fails to load
+              e.currentTarget.style.display = 'none';
+              e.currentTarget.nextSibling.style.display = 'flex';
+            }}
+          />
+        ) : null}
+
+        {/* Gradient + icon fallback */}
+        <span style={{
+          fontSize: '3.5rem', opacity: 0.5,
+          display: item.image ? 'none' : 'flex',
+          alignItems: 'center', justifyContent: 'center',
+          width: '100%', height: '100%',
+          position: item.image ? 'absolute' : 'relative',
+          inset: 0,
+        }}>
+          {item.icon}
+        </span>
+
+        {/* Category pill — always on top */}
         <span style={{
           position: 'absolute', top: '0.75rem', right: '0.75rem',
           fontFamily: 'var(--mono)', fontSize: '0.6rem', letterSpacing: '0.1em',
           padding: '0.2rem 0.65rem', borderRadius: 999,
-          background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff',
+          background: 'rgba(0,0,0,0.45)', border: '1px solid rgba(255,255,255,0.2)',
+          color: '#fff', backdropFilter: 'blur(4px)',
+          zIndex: 1,
         }}>
           {item.category}
         </span>
+
+        {/* Canva badge — always on top */}
         <span style={{
           position: 'absolute', bottom: '0.6rem', left: '0.75rem',
-          fontFamily: 'var(--mono)', fontSize: '0.58rem', color: 'rgba(255,255,255,0.5)',
+          fontFamily: 'var(--mono)', fontSize: '0.58rem',
+          color: 'rgba(255,255,255,0.8)',
           display: 'flex', alignItems: 'center', gap: '0.3rem',
+          background: 'rgba(0,0,0,0.35)', padding: '0.15rem 0.5rem',
+          borderRadius: 999, backdropFilter: 'blur(4px)',
+          zIndex: 1,
         }}>
           🎨 Made with Canva
         </span>
