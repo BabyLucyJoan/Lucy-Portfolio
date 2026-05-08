@@ -28,16 +28,25 @@ export default function Navbar({ active }) {
         transition: 'border-color 0.3s ease',
       }}>
 
-        {/* Logo */}
+        {/* Logo — transparent PNG, invert on light mode */}
         <button
           onClick={() => scrollTo('home')}
           style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
           title="Home"
         >
           <img
-            src="/logo.jpeg"
-            alt="NJL Splendour Logo"
-            className="nav-logo"
+            src="/logo.png"
+            alt="NJL Splendour"
+            style={{
+              height: 42,
+              width: 'auto',
+              objectFit: 'contain',
+              display: 'block',
+              // Dark: white art on dark bg — perfect as-is
+              // Light: invert turns white art dark so it reads on light nav
+              filter: dark ? 'none' : 'invert(1) brightness(0.2)',
+              transition: 'filter 0.4s',
+            }}
             onError={e => {
               e.currentTarget.style.display = 'none';
               e.currentTarget.nextSibling.style.display = 'flex';
@@ -85,7 +94,7 @@ export default function Navbar({ active }) {
           {/* Theme toggle */}
           <button
             onClick={toggle}
-            title={dark ? 'Light mode' : 'Dark mode'}
+            title={dark ? 'Switch to light mode' : 'Switch to dark mode'}
             style={{
               marginLeft: '0.4rem',
               width: 34, height: 34, borderRadius: '50%',
@@ -101,28 +110,12 @@ export default function Navbar({ active }) {
       </nav>
 
       <style>{`
-        /* Logo */
-        .nav-logo {
-          height: 42px;
-          width: auto;
-          object-fit: contain;
-          border-radius: 4px;
-          /* Dark mode: screen blend strips black bg, keeps white art */
-          mix-blend-mode: screen;
-          filter: brightness(1.15) contrast(1.05);
-        }
-        /* Light mode: logo has black bg + white art — invert makes it black art on white */
-        [data-theme="light"] .nav-logo {
-          mix-blend-mode: multiply;
-          filter: brightness(0) contrast(1);
-        }
-
         .nav-pill {
           display: none;
           align-items: center;
-          padding: 0.3rem 0.85rem;
+          padding: 0.3rem 0.75rem;
           border-radius: 999px;
-          font-size: 0.72rem;
+          font-size: 0.7rem;
           font-family: var(--mono);
           cursor: pointer;
           transition: all 0.2s;
@@ -136,23 +129,19 @@ export default function Navbar({ active }) {
           border-color: var(--border-hi);
           color: var(--acc);
         }
-        .nav-pill:hover {
-          color: var(--text);
-        }
-        .nav-pill[data-active="true"]:hover {
-          color: var(--acc);
-        }
+        .nav-pill:hover { color: var(--text); }
+        .nav-pill[data-active="true"]:hover { color: var(--acc); }
 
         .nav-icon-btn {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 26px; height: 26px;
+          width: 24px; height: 24px;
           border-radius: 50%;
           background: transparent;
           border: 1px solid transparent;
           color: var(--text-3);
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           cursor: pointer;
           transition: all 0.2s;
           flex-shrink: 0;
@@ -164,7 +153,7 @@ export default function Navbar({ active }) {
         }
         .nav-icon-btn:hover { color: var(--text); }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
           .nav-pill     { display: inline-flex; }
           .nav-icon-btn { display: none; }
         }

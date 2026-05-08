@@ -12,7 +12,6 @@ export const NAV = [
 export const AUTHOR = {
   name:       'Lucy Nwokoye',
   title:      'Fullstack Web Developer',
-  tagline:    'Software Engineer',
   bio:        "A Fullstack Web developer with a passion for creating dynamic, user-friendly, and visually appealing web applications. I specialise in building responsive interfaces with React, ensuring seamless performance across all devices.",
   email:      'nwokoyelucy@gmail.com',
   phone:      '+234-706-756-1427',

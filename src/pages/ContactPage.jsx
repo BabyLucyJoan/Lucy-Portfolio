@@ -12,10 +12,18 @@ const SOCIALS = [
   { icon: '📸', label: 'Instagram',href: AUTHOR.socials.instagram },
 ];
 
+// ── To activate the contact form ──
+// 1. Sign up free at https://emailjs.com
+// 2. Create a service + template, copy your IDs below
+// 3. Replace the simulate block with the real fetch call (commented out below)
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+
 export default function ContactPage() {
   const [ref, inView] = useInView();
   const [form, setForm]     = useState({ name: '', email: '', subject: '', message: '' });
-  const [status, setStatus] = useState('idle');
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
 
@@ -23,10 +31,28 @@ export default function ContactPage() {
     const { name, email, subject, message } = form;
     if (!name || !email || !subject || !message) { alert('Please fill in all fields.'); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email.'); return; }
+
     setStatus('sending');
+
+    // ── Real send (uncomment when EmailJS is configured) ──
+    // try {
+    //   const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    //     method: 'POST', headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({
+    //       service_id: EMAILJS_SERVICE_ID, template_id: EMAILJS_TEMPLATE_ID,
+    //       user_id: EMAILJS_PUBLIC_KEY,
+    //       template_params: { from_name: name, from_email: email, subject, message },
+    //     }),
+    //   });
+    //   setStatus(res.ok ? 'sent' : 'error');
+    // } catch { setStatus('error'); }
+
+    // ── Simulated (remove when EmailJS is live) ──
     await new Promise(r => setTimeout(r, 1200));
     setStatus('sent');
+
     setForm({ name: '', email: '', subject: '', message: '' });
+    setTimeout(() => setStatus('idle'), 5000);
   };
 
   return (
@@ -41,7 +67,7 @@ export default function ContactPage() {
         <h2 className="section-title">Get In <em>Touch</em></h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}>
-          {/* Direct contact */}
+          {/* Direct contact cards */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '0.75rem' }}>
             <a href={`mailto:${AUTHOR.email}`} className="card"
               style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.9rem 1rem' }}>
@@ -63,7 +89,9 @@ export default function ContactPage() {
 
           {/* Socials */}
           <div>
-            <p style={{ fontSize: '0.68rem', color: 'var(--text-3)', fontFamily: 'var(--mono)', marginBottom: '0.8rem', letterSpacing: '0.15em' }}>FIND ME ON</p>
+            <p style={{ fontSize: '0.68rem', color: 'var(--text-3)', fontFamily: 'var(--mono)', marginBottom: '0.8rem', letterSpacing: '0.15em' }}>
+              FIND ME ON
+            </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
               {SOCIALS.map(({ icon, label, href }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer"
@@ -79,11 +107,12 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Form */}
+          {/* Contact form */}
           <div className="card" style={{ padding: 'clamp(1.2rem, 4vw, 2rem)' }}>
             <p style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1rem, 3vw, 1.2rem)', marginBottom: '1.5rem' }}>
               Send a <em style={{ color: 'var(--acc)' }}>Message</em>
             </p>
+
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>
               {[['name','Name','Your name'],['email','Email','your@email.com']].map(([n,l,ph]) => (
                 <div key={n}>
@@ -92,21 +121,31 @@ export default function ContactPage() {
                 </div>
               ))}
             </div>
+
             <div style={{ marginBottom: '1rem' }}>
               <label style={{ fontSize: '0.68rem', color: 'var(--text-3)', fontFamily: 'var(--mono)', display: 'block', marginBottom: '0.4rem' }}>SUBJECT</label>
               <input className="contact-input" name="subject" value={form.subject} onChange={handleChange} placeholder="What's this about?" />
             </div>
+
             <div style={{ marginBottom: '1.5rem' }}>
               <label style={{ fontSize: '0.68rem', color: 'var(--text-3)', fontFamily: 'var(--mono)', display: 'block', marginBottom: '0.4rem' }}>MESSAGE</label>
-              <textarea className="contact-input" name="message" value={form.message} onChange={handleChange} rows={5} placeholder="Let's build something amazing together..." style={{ resize: 'vertical' }} />
+              <textarea className="contact-input" name="message" value={form.message} onChange={handleChange} rows={5}
+                placeholder="Let's build something amazing together..." style={{ resize: 'vertical' }} />
             </div>
+
             <button onClick={handleSubmit} disabled={status === 'sending'} className="btn-primary"
               style={{ width: '100%', justifyContent: 'center', opacity: status === 'sending' ? 0.7 : 1 }}>
               {status === 'sending' ? 'Sending...' : 'Send Message ↗'}
             </button>
+
             {status === 'sent' && (
               <p style={{ marginTop: '1rem', fontSize: '0.82rem', textAlign: 'center', fontFamily: 'var(--mono)', color: 'var(--acc2)' }}>
                 ✓ Message sent! I'll be in touch soon.
+              </p>
+            )}
+            {status === 'error' && (
+              <p style={{ marginTop: '1rem', fontSize: '0.82rem', textAlign: 'center', fontFamily: 'var(--mono)', color: 'var(--acc3)' }}>
+                ✗ Something went wrong. Try emailing me directly.
               </p>
             )}
           </div>
