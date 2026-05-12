@@ -180,13 +180,13 @@ export const DESIGNS = [
   {
     title:    'NJL Splendour Brand Identity',
     category: 'Branding',
-    desc:     'Logo, colour palette, and visual identity assets for the NJL Splendour fashion brand.',
+    desc:     'Logo, colour palette, and visual identity assets for the NJL Splendour brand.',
     color:    'linear-gradient(135deg, #2e0a1a, #1a0a2e)',
     icon:     '✨',
     image:    '/designs/njlsplendour.jpeg',
   },
   {
-    title:    'Event Flyers & Posters',
+    title:    'Saved With Dalyn',
     category: 'Print Design',
     desc:     'Promotional flyers and digital posters designed for tech meetups and community events.',
     color:    'linear-gradient(135deg, #0a2e1a, #0a1a2e)',
@@ -194,7 +194,7 @@ export const DESIGNS = [
     image:    '/designs/dalyn.jpeg',
   },
   {
-    title:    'Social Media Templates',
+    title:    'Dili beauty',
     category: 'Social Media',
     desc:     'Reusable Instagram and Twitter post templates for personal and community branding.',
     color:    'linear-gradient(135deg, #0a1a2e, #1a2e0a)',
@@ -202,7 +202,7 @@ export const DESIGNS = [
     image:    '/designs/dili.jpeg',
   },
   {
-    title:    'Presentation Decks',
+    title:    'GDP peanuts',
     category: 'Presentations',
     desc:     'Clean, professional slide decks created for tech talks, pitches, and community sessions.',
     color:    'linear-gradient(135deg, #2e1a0a, #0a1a2e)',
