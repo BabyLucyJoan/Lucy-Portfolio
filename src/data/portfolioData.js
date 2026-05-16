@@ -107,14 +107,24 @@ export const EXPERIENCE = [
 
 export const PROJECTS = [
   {
-    title:   'Tech And Teach Community',
-    tech:    'Community · Telegram · Africa',
-    desc:    'A vibrant Tech community of over a thousand people from across Africa — a space where learners, enthusiasts, and professionals explore technology, share knowledge, and grow through interactive tutorials, challenges, and discussions.',
-    live:    'https://t.me/techNteach',
+    title:   'HSD — Senator Dickson\'s Office',
+    tech:    'React · Vercel · Responsive Design',
+    desc:    'Official website for His Excellency, Senator Henry Seriake Dickson — Former Governor of Bayelsa State, Nigeria. A clean, professional political web presence.',
+    live:    'https://hsd-blue.vercel.app/',
     github:  '',
-    bgColor: 'linear-gradient(135deg,#0a1a2e,#1a0a2e)',
-    icon:    '🌍',
-    accent:  'var(--acc)',
+    bgColor: 'linear-gradient(135deg,#0a1a3e,#0a2e4a)',
+    icon:    '🏛',
+    accent:  'var(--acc2)',
+  },
+  {
+    title:   'SyncGrass Limited Website',
+    tech:    'React · Vercel · Dark/Light Mode',
+    desc:    'Full React conversion of a geospatial business website with animated marquee, enhanced carousel, dark/light mode toggle, and service detail pages.',
+    live:    'https://syncgrass-hjrp.vercel.app/',
+    github:  '',
+    bgColor: 'linear-gradient(135deg,#0a2e1a,#0a1a2e)',
+    icon:    '🌿',
+    accent:  'var(--acc2)',
   },
   {
     title:   'NJL Splendour E-commerce',
@@ -126,6 +136,16 @@ export const PROJECTS = [
     icon:    '👗',
     accent:  'var(--acc3)',
   },
+  {
+  title:   'LinkedWithLucy',
+  tech:    'React · Vite · Vercel',
+  desc:    'A custom-built link-in-bio app — featuring animated profile, featured links with descriptions, ripple effects, and a one-click share button.',
+  live:    'https://linked-with-lucy.vercel.app/',
+  github:  '',
+  bgColor: 'linear-gradient(135deg,#1a0a2e,#0a1a2e)',
+  icon:    '🔗',
+  accent:  'var(--acc)',
+},
   {
     title:   'NoteAngel',
     tech:    'React.js · Tailwind CSS · Vercel',
@@ -146,26 +166,7 @@ export const PROJECTS = [
     icon:    '🌤',
     accent:  'var(--acc)',
   },
-  {
-    title:   'Zealock Admin — Notifications',
-    tech:    'React · TypeScript · Vite · setInterval',
-    desc:    'Scheduled notification system with manual fallback trigger and failure-state UI. Built at Xynder as part of the Zealock Admin internal product.',
-    live:    '',
-    github:  '',
-    bgColor: 'linear-gradient(135deg,#1a0a2e,#0a1a2e)',
-    icon:    '🔔',
-    accent:  'var(--acc)',
-  },
-  {
-    title:   'SyncGrass Limited Website',
-    tech:    'React · Vercel · Dark/Light Mode',
-    desc:    'Full React conversion of a business website with animated marquee, enhanced carousel, theme toggle, and service detail pages.',
-    live:    '',
-    github:  '',
-    bgColor: 'linear-gradient(135deg,#0a2e1a,#0a1a2e)',
-    icon:    '🌿',
-    accent:  'var(--acc2)',
-  },
+  
 ];
 
 export const DESIGNS = [
@@ -180,13 +181,13 @@ export const DESIGNS = [
   {
     title:    'NJL Splendour Brand Identity',
     category: 'Branding',
-    desc:     'Logo, colour palette, and visual identity assets for the NJL Splendour brand.',
+    desc:     'Logo, colour palette, and visual identity assets for the NJL Splendour fashion brand.',
     color:    'linear-gradient(135deg, #2e0a1a, #1a0a2e)',
     icon:     '✨',
     image:    '/designs/njlsplendour.jpeg',
   },
   {
-    title:    'Saved With Dalyn',
+    title:    'Event Flyers & Posters',
     category: 'Print Design',
     desc:     'Promotional flyers and digital posters designed for tech meetups and community events.',
     color:    'linear-gradient(135deg, #0a2e1a, #0a1a2e)',
@@ -194,7 +195,7 @@ export const DESIGNS = [
     image:    '/designs/dalyn.jpeg',
   },
   {
-    title:    'Dili beauty',
+    title:    'Social Media Templates',
     category: 'Social Media',
     desc:     'Reusable Instagram and Twitter post templates for personal and community branding.',
     color:    'linear-gradient(135deg, #0a1a2e, #1a2e0a)',
@@ -202,7 +203,7 @@ export const DESIGNS = [
     image:    '/designs/dili.jpeg',
   },
   {
-    title:    'GDP peanuts',
+    title:    'Presentation Decks',
     category: 'Presentations',
     desc:     'Clean, professional slide decks created for tech talks, pitches, and community sessions.',
     color:    'linear-gradient(135deg, #2e1a0a, #0a1a2e)',
