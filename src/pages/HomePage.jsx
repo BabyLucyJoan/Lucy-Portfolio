@@ -78,7 +78,7 @@ export default function HomePage() {
 
           {/* Stats row */}
           <div style={{ ...fade(680), display: 'grid', gridTemplateColumns: 'repeat(3, auto)', columnGap: '2rem', rowGap: 0, width: 'fit-content', maxWidth: '100%' }}>
-            {[['3+', 'Years Dev'], ['6+', 'Projects'], ['1k+', 'Community']].map(([num, label]) => (
+            {[['4+', 'Years Dev'], ['13+', 'Projects'], ['1k+', 'Community']].map(([num, label]) => (
               <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                 <span style={{
                   fontFamily: 'var(--serif)', fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)',
